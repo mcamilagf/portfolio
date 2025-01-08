@@ -1,0 +1,39 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Rangers Football Club.",
+  "width": "container",
+  "height": 250,
+  "data": {
+    "values": [
+      {"Season": "2010/2011", "Tickets": 37918}, {"Season": "2011/2012", "Tickets": 37767}, {"Season": "2012/2013", "Tickets": 38014}
+    ]
+  },
+  "mark":{
+  "type": "bar",
+  "color":"lightblue"
+},
+  "encoding": {
+    "x": {"field": "Season", "type": "nominal", "axis": {"labelAngle": 0}},
+    "y": {"field": "Tickets", "type": "quantitative"},
+    "color": {
+							"field": "Season", "type": "nominal" ,
+			    		"sort": {"field": "myOrder" },
+							"scale":{
+									"range": [ "#6baed6","#393b79","red"]
+								}
+							}
+  },
+  "layer": [{
+    "mark": "bar"
+  }, {
+    "mark": {
+      "type": "text",
+      "align": "center",
+      "baseline": "middle",
+      "dy": -5
+    },
+    "encoding": {
+      "text": {"field": "Tickets", "type": "quantitative"}
+    }
+  }]
+}

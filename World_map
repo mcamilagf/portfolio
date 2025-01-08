@@ -1,0 +1,39 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "World Map",
+    "fontSize": 16,
+    "subtitleFontSize": 12,
+    "subtitleFontWeight": "lighter",
+    "anchor": "middle"
+  },
+  "data": {
+    "url": "https://raw.githubusercontent.com/EconomicsObservatory/courses/main/datasets/advanced/map_world.geojson",
+    "format": {"property": "features"}
+  },
+  "width": 600,
+  "height": 330,
+  "transform": [
+    {
+      "lookup": "properties.ISO3",
+      "from": {
+        "key": "ISO3",
+        "fields": ["country", "value"],
+        "data": {
+          "url": "https://raw.githubusercontent.com/EconomicsObservatory/courses/main/datasets/advanced/global_gdp_perCapita_2021.csv"
+        }
+      }
+    }
+  ],
+  "projection": {
+    "type": "naturalEarth1",
+    "scale": 125,
+    "translate": [285, 180]
+  },
+  "mark": {"type": "geoshape", "stroke": "white", "strokeWidth": 0.3},
+  "encoding": {
+    "tooltip": [
+      {"field": "country", "title": "Country"}
+    ]
+  }
+}

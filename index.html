@@ -1,0 +1,294 @@
+<!-- This HTML file provides a simple example of a portfolio page. It contains a header, a few sections, and a few charts. -->
+<!-- It works with the three css files in this folder: example1.css, example2.css and example3.css. -->
+<!-- The HTML file defines the structure of the page, and the CSS files define how it looks. -->
+<!-- The CSS examples are all designed to work with this page. Try swapping them out on line 29 and see what happens. -->
+
+<!-- Take a look around and make your own copy to adapt for your own use. -->
+
+<!-- This is a comment -->
+<!-- Comments are not displayed in the browser -->
+<!-- They can be used to leave notes in the code -->
+
+<!DOCTYPE html>
+<html>
+<!-- HTML is heirarchial: tags like this define elements on the page. 
+    Each tag does something different. For example:
+        - The <html> tag defines the whole document.
+        - The <h1> tag defines a large heading
+        - The <p> tag defines a paragraph
+        - Tags appear as an opening <div> and closing </div> pair
+    -->
+
+<head>
+    <!-- The head tag links to resources our page needs and defines information about it. Tags in the <head> aren't displayed on the page. -->
+
+    <!-- This is a link to a stylesheet which contains rules about how each element on the page should be defined-->
+    <!-- Try swapping example1.css to another, and take a look at example1.css to see if you understand it-->
+    <link rel="stylesheet" type="text/css" href="portfolio_style.css">
+    <title>My Portfolio</title> <!-- The title displayed in the browser tab, not on the page itself -->
+
+    <!-- This is a link to the vega-lite which we're using to make graphs -->
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+    <style>
+        #chartGrid {
+            display: flex;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- The body tag contains the elements that visitors to our page will see. -->
+    <h1 class="big" style="margin-bottom: 0px;">
+        <!-- We have added a class to the header called "big" which we can use to style it in the CSS -->
+        <!-- This is a header, it is the largest text on the page -->
+        Camila's Portfolio
+    </h1>
+    <p style="margin-top: 0px; color: darkblue">
+        <!-- we're setting the margin to 0px so the header and authour name are close together -->
+        Maria Camila Gomez Fernandez | <a href="https://www.linkedin.com/in/maria-camila-gomez-fernandez-8a3133167/">LinkedIn</a> | <a
+            href="https://www.github.com/mcamilagf">GitHub</a> | <a href="https://mcamilagf.github.io/project/">Project</a>
+    </p>
+    <h3 class="small">
+        <!-- We have added a class to the header called "small" which we can use to style it in the CSS -->
+        
+        Automated Data Visualization -  School of Public Policy
+    </h3>
+
+    <!-- We're organising the page into sections, with each section containing a chart, title and a description -->
+    <section>
+        <div class="chart-description">
+            <h2>Task 1: First graph - Real GDP per capita</h2>
+            <p> <!-- This is a paragraph, it's the main way to display text on a web page -->
+                From 1990 to 2022, real GDP per capita in the United States and United Kingdom grew steadily, with
+                occasional dips like during the 2008 crisis.
+                China saw rapid growth due to economic reforms, significantly boosting its per capita income.
+                India experienced solid growth from liberalization, though more gradual than China.
+                The Congo, however, faced slow growth due to political and economic challenges, keeping its GDP per
+                capita among the lowest
+            </p>
+        </div>
+        <figure id="Location1" style="width: 100%; max-width: 600px; min-width: 300px;"></figure> <!-- we give it an id so we can put a vega-lite graph here with VegaEmbed -->
+    </section>
+    <section>
+        <div class="chart-description">
+            <h2>Task 1: Second graph - Gender Parity</h2>
+            <p> <!-- This is a paragraph, it's the main way to display text on a web page -->
+                The Philippines has made significant progress in gender parity, with strong female participation in
+                education, health, and leadership roles.
+                In contrast, Pakistan faces major challenges, ranking low due to cultural and social barriers that limit
+                women's access to education and work.
+                While the Philippines shows notable gender equality, Pakistan continues to struggle with deep-rooted
+                societal constraints.
+            </p>
+        </div>
+        <figure id="Location2" style="width: 100%; max-width: 600px; min-width: 300px;"></figure> <!-- we give it an id so we can put a vega-lite graph here with VegaEmbed -->
+    </section>
+    <section>
+        <div class="chart-description">
+            <h2>Task 2: Unemployment rate in Germany (2000-2022)</h2>
+            <p> <!-- This is a paragraph, it's the main way to display text on a web page -->
+                Between 2000 and 2022, Germany's unemployment rate fluctuated significantly. It peaked around 11% in
+                2005 due to economic challenges but steadily declined. By 2019, it reached a low of about 3.2% due to
+                economic growth.
+                The COVID-19 pandemic in 2020 briefly increased unemployment, but government support helped stabilize
+                the rate, which remained low by 2022.
+            </p>
+        </div>
+        <figure id="Location3" style="width: 100%; max-width: 600px; min-width: 300px;"></figure>
+        <!-- we give it an id so we can put a vega-lite graph here with VegaEmbed -->
+    </section>
+    <section>
+        <div class="chart-description">
+            <h2>Task 2: Real Weekly Wage in UK (2000-2024)</h2>
+            <p> <!-- This is a paragraph, it's the main way to display text on a web page -->
+                Real weekly wages in the UK from 2000 to 2024 have fluctuated significantly due to economic conditions
+                and inflation.
+                After steady growth in the early 2000s, wages stagnated following the 2008 financial crisis and
+                struggled to recover in subsequent years.
+                The COVID-19 pandemic further disrupted wage growth, although government support measures helped
+                stabilize incomes.
+                By 2024, while real weekly wages are anticipated to have improved, rising living costs and inflation
+                continue to challenge workers' purchasing power.
+            </p>
+        </div>
+        <figure id="Location4" style="width: 100%; max-width: 600px; min-width: 300px;"></figure> <!-- we give it an id so we can put a vega-lite graph here with VegaEmbed -->
+    </section>
+    <section>
+        <div class="chart-description">
+            <h2> Task 3: Festival of Economics </h2>
+            <h2> Trading nation: How can we get Britain exporting again? </h2>
+            <p>
+                Does the UK's future economic growth rely on exports? And if it does, what can we export to boost the
+                country’s economy?
+                The panel explores the strategies and policies needed to help boost the British export market, which is
+                increasingly service-based.
+                
+            <p>
+            <h2>Section 3.1: Real Exports in UK </h2>
+            <p> <!-- This is a paragraph, it's the main way to display text on a web page -->
+                Real exports in the UK from 1990 to 2024 have shown significant variability, influenced by economic
+                trends, global market conditions, and trade policies.
+                In the 1990s, exports experienced steady growth, bolstered by the expansion of the European Union and
+                globalization.
+                However, the 2008 financial crisis led to a sharp decline in exports, followed by a slow recovery in the
+                2010s.
+                The UK's decision to leave the EU in 2016 introduced new trade dynamics, initially creating uncertainty
+                that affected export performance. In the wake of the COVID-19 pandemic, exports faced further challenges
+                but have gradually rebounded.
+                By 2024, real exports are expected to have improved as the UK adapts to post-Brexit trade relationships
+                and seeks new markets.
+            </p>
+        </div>
+        <figure id="Location5" style="width: 100%; max-width: 600px; min-width: 300px;"></figure> <!-- we give it an id so we can put a vega-lite graph here with VegaEmbed -->
+    </section>
+
+    </section>
+        <div class="chart-description">
+            <h2>Section 3.2: Real Imports in UK</h2>
+            <p> <!-- This is a paragraph, it's the main way to display text on a web page -->
+                From 1990 to 2024, UK real imports experienced growth and fluctuations influenced by economic shifts.
+                Imports rose in the 1990s and early 2000s due to economic expansion and EU integration.
+                The 2008 financial crisis caused a temporary drop, followed by recovery.
+                Brexit in 2016 brought trade uncertainties, affecting imports, and the COVID-19 pandemic in 2020 disrupted supply chains. 
+                By 2024, imports are expected to have rebounded as the UK adjusts to new trade conditions post-Brexit and post-pandemic.
+            </p>
+        </div>
+        <figure id="Location6" style="width: 100%; max-width: 600px; min-width: 300px;"></figure> <!-- we give it an id so we can put a vega-lite graph here with VegaEmbed -->
+        <h2>Conclusion</h2>
+        <p> <!-- This is a paragraph, it's the main way to display text on a web page -->
+            To boost Britain’s export growth and strengthen its global position, policies should focus on forging new trade agreements, reducing barriers, and diversifying export markets. 
+            Investing in innovation and aligning regulatory standards with key partners can enhance competitiveness. 
+            Supporting infrastructure and resilient supply chains will further optimize trade, reinforcing the UK’s economic standing.
+        </p>
+    
+    <section>
+        <div class="chart-description">
+            <h2>Task 4: Replication, Re-create and improve</h2>
+            <p> 
+                I chose a graph I found in X and replicated it in Vega and then displayed it correctly by adjusting the axes to identify that the change was not as drastic as the image showed.
+            </p>
+            <img src="./Image_task_4_v2.jpeg"></img>
+        </div>
+        <h2>Section 4.1: Replication</h2>
+
+        <figure id="Location7" style="width: 100%; max-width: 600px; min-width: 300px;"></figure> <!-- we give it an id so we can put a vega-lite graph here with VegaEmbed -->
+        <h2>Section 4.2: Improvement</h2>
+
+        <figure id="Location8" style="width: 100%; max-width: 600px; min-width: 300px;"></figure> <!-- we give it an id so we can put a vega-lite graph here with VegaEmbed -->
+ 
+    </section>
+    <section>
+        <div class="chart-description">
+            <h2>Task 5: Scraper</h2>
+            <p> 
+                The data I chose is easily accessible through Worldometer and I selected the GDP data for Colombia with the intention of performing an analysis of GDP behavior between 1993 and 2024.
+                <ul>
+                    <li>Link: <a href="https://www.worldometers.info/gdp/colombia-gdp/">Worldometer</a></li>
+                    <li>Link to the Google Collab python notebook: <a href="https://colab.research.google.com/drive/1FyrewgPWaHdFYUgBAlK86UWxLoeCudff?usp=sharing">Google Collab</a></li>
+                </ul>
+                </p>
+            <img src="./Task_5.jpeg"></img>
+        </div>
+ 
+    </section>
+
+    </section>
+        <div class="chart-description">
+            <h2>Task 7: World map </h2>
+        </div>
+        <figure id="Location9" style="width: 100%; max-width: 600px; min-width: 300px;"></figure> <!-- we give it an id so we can put a vega-lite graph here with VegaEmbed -->
+    </section>
+
+    </section>
+    <div class="chart-description">
+        <h2>Task 7: GDP global map </h2>
+        <p> <!-- This is a paragraph, it's the main way to display text on a web page -->
+            The global distribution of GDP shows big differences between countries. 
+            Wealthy nations, mostly in North America, Europe, and parts of Asia, produce most of the world's GDP thanks to strong industries and infrastructure.
+            On the other hand, poorer countries, especially in Africa and parts of Asia and Latin America, contribute much less due to limited resources and challenges like weak infrastructure. 
+            This highlights the large gap in wealth and economic opportunities worldwide.  </p>
+    </div>
+    <figure id="Location10" style="width: 100%; max-width: 600px; min-width: 300px;"></figure> <!-- we give it an id so we can put a vega-lite graph here with VegaEmbed -->
+    </section>
+
+    <section>
+        <div class="chart-description">
+            <h2>Task 8: Advanced analytics</h2>
+            <p> <!-- This is a paragraph, it's the main way to display text on a web page -->
+                <ul>
+                    <li>Link: <a href="https://ilostat.ilo.org/es/topics/working-poverty/#elementor-toc__heading-anchor-1">ILOSTAT</a></li>
+                    <li>Link to the Google Collab python notebook: <a href="https://colab.research.google.com/drive/1o8-ACrgsYMdoXGl62EG7mbYCuwuRIMjM?usp=sharing">Google Collab</a></li>
+                </ul>
+            </p>
+            <img src="./Task_8_a.jpeg"></img>
+            <img src="./Task_8_b.jpeg"></img>
+        </div>
+    </section>
+</section>
+<div class="chart-description">
+    <h2>Task 9: The price of a pint  </h2>
+
+</div>
+<figure id="Location11" style="width: 100%; max-width: 600px; min-width: 300px;"></figure> <!-- we give it an id so we can put a vega-lite graph here with VegaEmbed -->
+
+</section>
+
+</section>
+<div class="chart-description">
+    <h2>Task 10: Interactive Visualisations </h2>
+</div>
+<h2>Section 10.1: Growth trajectories  </h2>
+<figure id="Location12" style="width: 100%; max-width: 600px; min-width: 300px;"></figure> <!-- we give it an id so we can put a vega-lite graph here with VegaEmbed -->
+<h2>Section 10.2: Cost of renewables  </h2>
+<figure id="Location13" style="width: 100%; max-width: 600px; min-width: 300px;"></figure> <!-- we give it an id so we can put a vega-lite graph here with VegaEmbed -->
+
+</section>
+
+    <!-- Do you want to add more sections? -->
+    <!-- Try copying pasting the section above -->
+    <!-- You'll need to change the id of the figure "<figure id="Location3"... -->
+    <!-- ... and add a new variable for the graph spec in the script at the bottom of the page -->
+
+
+    <!-- This is a script, it's a way to run JavaScript code on the page -->
+    <script>
+        // This is a comment in JavaScript - it's a different language to HTML and CSS
+        let figure_1_spec = "wk1_chart2.json"; // Real GDP per capita
+        let figure_2_spec = "graph_1"; // Gender parity
+        let figure_3_spec = "GER_unemployment"; // Unemployment rate in Germany (2000-2022)
+        let figure_4_spec = "UK_salary_week"; // Real Weekly Wage in UK (2000-2024)
+        let figure_5_spec = "UK_real_exports"; // Real exports in UK (2000-2024)
+        let figure_6_spec = "UK_real_imports"; // Real imports in UK (2000-2024)
+        let figure_7_spec = "task_4_replicate"; // Real imports in UK (2000-2024)
+        let figure_8_spec = "task_4_improve"; // Real imports in UK (2000-2024)
+        let figure_9_spec = "World_map"; // World map
+        let figure_10_spec = "GDP_global_map"; // GDP global
+        let figure_11_spec = "Task_9"; // Price of a pint
+        let figure_12_spec = "Task_10_a.json"; // Cost of renewables
+        let figure_13_spec = "Task_10_b.json"; // Growth trajectories
+
+
+        vegaEmbed('#Location1', figure_1_spec)
+        vegaEmbed('#Location2', figure_2_spec)
+        vegaEmbed('#Location3', figure_3_spec)
+        vegaEmbed('#Location4', figure_4_spec)
+        vegaEmbed('#Location5', figure_5_spec)
+        vegaEmbed('#Location6', figure_6_spec)
+        vegaEmbed('#Location7', figure_7_spec)
+        vegaEmbed('#Location8', figure_8_spec)
+        vegaEmbed('#Location9', figure_9_spec)
+        vegaEmbed('#Location10', figure_10_spec)
+        vegaEmbed('#Location11', figure_11_spec)
+        vegaEmbed('#Location12', figure_12_spec)
+        vegaEmbed('#Location13', figure_13_spec)
+
+
+
+    </script>
+
+</body>
+
+</html>
